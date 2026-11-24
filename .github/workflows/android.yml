@@ -70,9 +70,10 @@ jobs:
           BUBBLEWRAP_KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
         run: |
           set -euo pipefail
-          # appVersionName must equal the current appVersionCode, otherwise Bubblewrap
-          # stops to ask a human for the new version name.
-          node -e 'const fs=require("fs");const f="twa-manifest.json";const j=JSON.parse(fs.readFileSync(f));j.appVersionCode=Number(process.env.RUN_NUMBER);j.appVersionName=String(process.env.RUN_NUMBER);fs.writeFileSync(f,JSON.stringify(j,null,2));'
+          # Bubblewrap reads the version name from `appVersion` and only bumps it
+          # silently when it equals the current appVersionCode; otherwise it stops to
+          # ask a human for the version name.
+          node -e 'const fs=require("fs");const f="twa-manifest.json";const j=JSON.parse(fs.readFileSync(f));j.appVersionCode=Number(process.env.RUN_NUMBER);j.appVersion=String(process.env.RUN_NUMBER);j.appVersionName=String(process.env.RUN_NUMBER);fs.writeFileSync(f,JSON.stringify(j,null,2));'
           # "y" answers Bubblewrap's "regenerate the project?" prompt: the manifest
           # is checked in, the generated Gradle project is not.
           printf 'y\n' | bubblewrap build --skipPwaValidation
@@ -86,9 +87,10 @@ jobs:
           BUBBLEWRAP_KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
         run: |
           set -euo pipefail
-          # appVersionName must equal the current appVersionCode, otherwise Bubblewrap
-          # stops to ask a human for the new version name.
-          node -e 'const fs=require("fs");const f="twa-manifest.json";const j=JSON.parse(fs.readFileSync(f));j.appVersionCode=Number(process.env.RUN_NUMBER);j.appVersionName=String(process.env.RUN_NUMBER);fs.writeFileSync(f,JSON.stringify(j,null,2));'
+          # Bubblewrap reads the version name from `appVersion` and only bumps it
+          # silently when it equals the current appVersionCode; otherwise it stops to
+          # ask a human for the version name.
+          node -e 'const fs=require("fs");const f="twa-manifest.json";const j=JSON.parse(fs.readFileSync(f));j.appVersionCode=Number(process.env.RUN_NUMBER);j.appVersion=String(process.env.RUN_NUMBER);j.appVersionName=String(process.env.RUN_NUMBER);fs.writeFileSync(f,JSON.stringify(j,null,2));'
           printf 'y\n' | bubblewrap build --skipPwaValidation
           cp app-release-signed.apk "$GITHUB_WORKSPACE/nes-admin.apk"
 

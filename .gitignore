@@ -1,0 +1,4 @@
+*.keystore
+keystore.b64
+storepass.txt
+manifest-checksum.txt

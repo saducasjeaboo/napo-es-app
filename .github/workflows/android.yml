@@ -38,13 +38,12 @@ jobs:
       - name: Point Bubblewrap at the toolchains
         run: |
           set -euo pipefail
-          # Bubblewrap only accepts an SDK that has cmdline-tools/latest/bin/sdkmanager,
-          # while the runner image ships a versioned directory (e.g. cmdline-tools/16.0).
-          if [ ! -d "$ANDROID_HOME/cmdline-tools/latest" ]; then
-            latest=$(ls -d "$ANDROID_HOME"/cmdline-tools/*/ | grep -v '/latest/$' | head -1)
-            ln -s "${latest%/}" "$ANDROID_HOME/cmdline-tools/latest"
+          # Bubblewrap only accepts an SDK path when it contains a "tools" or "bin"
+          # folder, while the runner image ships just cmdline-tools/<version>.
+          if [ ! -d "$ANDROID_HOME/tools" ] && [ ! -d "$ANDROID_HOME/bin" ]; then
+            cmdline=$(ls -d "$ANDROID_HOME"/cmdline-tools/*/ | head -1)
+            ln -s "${cmdline%/}/bin" "$ANDROID_HOME/bin"
           fi
-          ls "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager"
           mkdir -p "$HOME/.bubblewrap"
           printf '{"jdkPath":"%s","androidSdkPath":"%s"}\n' "$JAVA_HOME" "$ANDROID_HOME" > "$HOME/.bubblewrap/config.json"
           bubblewrap --version

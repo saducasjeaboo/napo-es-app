@@ -13,8 +13,8 @@
   "backgroundColor": "#122a66",
   "enableNotifications": true,
   "startUrl": "/admin/login.php",
-  "iconUrl": "https://napoelementaryschool.site.je/admin/assets/images/admin-icon-512.png",
-  "maskableIconUrl": "https://napoelementaryschool.site.je/admin/assets/images/admin-icon-512.png",
+  "iconUrl": "https://raw.githubusercontent.com/saducasjeaboo/napo-es-app/main/assets/admin-icon-512.png",
+  "maskableIconUrl": "https://raw.githubusercontent.com/saducasjeaboo/napo-es-app/main/assets/admin-icon-512.png",
   "splashScreenFadeOutDuration": 300,
   "signingKey": {
     "path": "./android.keystore",

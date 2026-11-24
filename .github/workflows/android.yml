@@ -71,7 +71,9 @@ jobs:
         run: |
           set -euo pipefail
           node -e 'const fs=require("fs");const f="twa-manifest.json";const j=JSON.parse(fs.readFileSync(f));j.appVersionCode=Number(process.env.RUN_NUMBER);fs.writeFileSync(f,JSON.stringify(j,null,2));'
-          bubblewrap build --skipPwaValidation
+          # "y" answers Bubblewrap's "regenerate the project?" prompt: the manifest
+          # is checked in, the generated Gradle project is not.
+          printf 'y\n' | bubblewrap build --skipPwaValidation
           cp app-release-signed.apk "$GITHUB_WORKSPACE/napo-es.apk"
 
       - name: Build admin app (NES Admin)
@@ -83,7 +85,7 @@ jobs:
         run: |
           set -euo pipefail
           node -e 'const fs=require("fs");const f="twa-manifest.json";const j=JSON.parse(fs.readFileSync(f));j.appVersionCode=Number(process.env.RUN_NUMBER);fs.writeFileSync(f,JSON.stringify(j,null,2));'
-          bubblewrap build --skipPwaValidation
+          printf 'y\n' | bubblewrap build --skipPwaValidation
           cp app-release-signed.apk "$GITHUB_WORKSPACE/nes-admin.apk"
 
       - name: Signing fingerprint + assetlinks.json

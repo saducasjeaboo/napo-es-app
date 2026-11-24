@@ -1,0 +1,56 @@
+{
+    "name": "Napo Elementary School",
+    "id": "/",
+    "short_name": "Napo ES",
+    "description": "Official website of Napo Elementary School, Carcar City, Cebu",
+    "start_url": "./index.php",
+    "scope": "./",
+    "display": "standalone",
+    "display_override": [
+        "window-controls-overlay",
+        "standalone",
+        "minimal-ui"
+    ],
+    "orientation": "any",
+    "background_color": "#ffffff",
+    "theme_color": "#1A3A8A",
+    "categories": [
+        "education"
+    ],
+    "prefer_related_applications": false,
+    "icons": [
+        {
+            "src": "assets/images/icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "assets/images/icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "assets/images/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "assets/images/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "assets/images/hero/hero1.png",
+            "sizes": "1280x720",
+            "type": "image/png",
+            "form_factor": "wide",
+            "label": "Napo Elementary School Homepage"
+        }
+    ]
+}

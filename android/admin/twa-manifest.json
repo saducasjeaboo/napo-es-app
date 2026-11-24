@@ -24,7 +24,7 @@
   "appVersionCode": 1,
   "shortcuts": [],
   "generatorApp": "bubblewrap-cli",
-  "webManifestUrl": "https://napoelementaryschool.site.je/admin/manifest.json",
+  "webManifestUrl": "https://raw.githubusercontent.com/saducasjeaboo/napo-es-app/main/assets/admin-manifest.json",
   "fallbackType": "customtabs",
   "features": {
     "playBilling": {

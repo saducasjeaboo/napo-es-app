@@ -1,0 +1,47 @@
+{
+  "packageId": "je.site.napoelementaryschool.admin",
+  "host": "napoelementaryschool.site.je",
+  "name": "NES Admin",
+  "launcherName": "NES Admin",
+  "display": "standalone",
+  "themeColor": "#1A3A8A",
+  "themeColorDark": "#122a66",
+  "navigationColor": "#1A3A8A",
+  "navigationColorDark": "#122a66",
+  "navigationDividerColor": "#122a66",
+  "navigationDividerColorDark": "#122a66",
+  "backgroundColor": "#122a66",
+  "enableNotifications": true,
+  "startUrl": "/admin/login.php",
+  "iconUrl": "https://napoelementaryschool.site.je/admin/assets/images/admin-icon-512.png",
+  "maskableIconUrl": "https://napoelementaryschool.site.je/admin/assets/images/admin-icon-512.png",
+  "splashScreenFadeOutDuration": 300,
+  "signingKey": {
+    "path": "./android.keystore",
+    "alias": "napo"
+  },
+  "appVersionName": "1.0.0",
+  "appVersionCode": 1,
+  "shortcuts": [],
+  "generatorApp": "bubblewrap-cli",
+  "webManifestUrl": "https://napoelementaryschool.site.je/admin/manifest.json",
+  "fallbackType": "customtabs",
+  "features": {
+    "playBilling": {
+      "enabled": false
+    }
+  },
+  "alphaDependencies": {
+    "enabled": false
+  },
+  "enableSiteSettingsShortcut": true,
+  "isChromeOSOnly": false,
+  "isMetaQuest": false,
+  "fullScopeUrl": "https://napoelementaryschool.site.je/admin/",
+  "minSdkVersion": 21,
+  "orientation": "default",
+  "fingerprints": [],
+  "additionalTrustedOrigins": [],
+  "retainedBundles": [],
+  "appVersion": "1"
+}
